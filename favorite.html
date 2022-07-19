@@ -1,33 +1,35 @@
-<div class="container">
-    <h2>Favorite Books</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Books Directory</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo&family=B612&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+	<link rel="stylesheet" href="style.css" />
+	
+	
+</head>
+<body>
   
-    <button type="button" id="new-book" class="btn btn-sm btn-primary">Add New Movie</button>
-  
-    
-    <div id="new-movie-form">
-      <div id="status" class="error"> </div>
-      
-      <form name="movieform" class="movie-form">
-      <div class="form-group">
-        <label for="title">Title:</label>
-        <input type="text" class="form-control" id="title">
+	<div class="container">
+    <div class="header">
+      <a href="index.html" class="logo">Book Shelf <i class="fas fa-book"></i></a>
+      <div class="header-right">
+        <a href="index.html"><i class="fas fa-home"></i></a>
+        <a class="active" href="favorite.html"><i class="fas fa-heart"></i></a>
       </div>
-      <div class="form-group">
-        <label for="img">Image:</label>
-        <input type="text" class="form-control" id="img">
-      </div>
-      
-      <div class="form-group">
-        <label for="rating">Rating:</label>
-        <input type="number" class="form-control" id="rating">
-      </div>
-      
-      <!--<button type="button" id="save-new-movie" class="btn btn-primary"  Save</button>
-  OR
-  -->
-        <input class="btn btn-sm btn-primary" type="submit" value="Save" id="save-new-movie" onClick=addMovie(movieform)>
-      </form>
     </div>
-    <div id="table"> </div>
-  
-  </div>
+    <div class = "books" id = "fav"></div>
+	</div>
+  <script src="script.js"></script>
+</body>
+</html>

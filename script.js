@@ -1,58 +1,126 @@
 let books = [
     {
-        title: "the complete English poems",
+        id:1,
+        title: "The complete English poems",
         author: "Samuel Johnson",
         edition: 33,
         image: "https://covers.openlibrary.org/b/id/9708321-L.jpg"
     },
     {
+        id:2,
         title: "The power of habit",
         author: "Charles Duhigg",
         edition: 13,
         image: "https://covers.openlibrary.org/b/id/12577855-L.jpg"
     },
     {
+        id:3,
         title: "Rich dad, poor dad",
         author: "Robert T. Kiyosaki",
         edition: 58,
         image: "https://covers.openlibrary.org/b/id/12779582-L.jpg"
     },
     {
+        id:4,
         title: "Off the Edge",
         author: "Kelly Weill",
         edition: 3,
         image: "https://covers.openlibrary.org/b/id/12649434-L.jpg"
     }
 ];
-function addElements(books){
-    const divs = [];
-    const newDiv = document.createElement("div");
+////
+let favorites =[{
+    title: "Off the Edge",
+    author: "Kelly Weill",
+    edition: 3,
+    image: "https://covers.openlibrary.org/b/id/12649434-L.jpg"
+}];
+
+function generateCard(el){
+    const div = document.createElement("div");
+    const img = document.createElement("img");
+    const ttl = document.createElement("h5");
+    const auth = document.createElement("h6");
+    const btn = document.createElement("button");
+    const idHidden=document.createElement('input')
+
+    img.src = el.image;
+    img.alt = "Image Not Found !";
+    ttl.innerText = el.title;
+    auth.innerText = el.author;
+    btn.innerText = "+";
+    idHidden.setAttribute("id",el.id)
+    idHidden.setAttribute("class","hidden")
+
+    ttl.setAttribute("class","title");
+    auth.setAttribute("class","author");
+    btn.setAttribute("class","fas fa-heart");
+    btn.setAttribute("id",ttl);
     
+
+    div.appendChild(img);
+    div.appendChild(ttl);
+    div.appendChild(auth);
+    div.appendChild(btn);
+    div.appendChild(idHidden)
+   
+    div.setAttribute("class", "book");
+    
+    document.getElementById("books").appendChild(div);
+    // btn.onclick = addToFavorites(idHidden);
+    btn.addEventListener('click',e=>{
+        addToFavorites(el)
+    })
+}
+    
+books.map((el)=>{generateCard(el)});
+
+/// favorites
+
+function generateFavoriteCard(el){
+    const div = document.createElement("div");
+    const img = document.createElement("img");
+    const ttl = document.createElement("h5");
+    const auth = document.createElement("h6");
+    const btn = document.createElement("button");
+
+    img.src = el.image;
+    img.alt = "Image Not Found !";
+    ttl.innerText = el.title;
+    auth.innerText = el.author;
+    btn.innerText = "-";
+
+    ttl.setAttribute("class","title");
+    auth.setAttribute("class","author");
+    btn.setAttribute("class","fas fa-heart");
+    
+
+    div.appendChild(img);
+    div.appendChild(ttl);
+    div.appendChild(auth);
+    div.appendChild(btn);
+    div.setAttribute("class", "book");
 }
 
-function addElement(){
-    // create a new div element
-    const newDiv = document.createElement("div");
-
-    // and give it some content
-    const newContent = document.createTextNode("Hi there and greetings!");
-
-    // add the text node to the newly created div
-    newDiv.appendChild(newContent);
-
-    // add the newly created element and its content into the DOM
-    const currentDiv = document.getElementById("div1");
-    document.body.insertBefore(newDiv, currentDiv);
-      
+function addToFavorites(idHidden){
+    favorites.push(idHidden);
+    localStorage
+    console.log(favorites)
 }
-let div1 = document.createElement("div");
-let image1 = document.createElement("img");
-let title1 = document.createElement("h2");
-
-image1.src = books[0].image;
-title1.innerText = books[0].title;
-
-div1.appendChild(image1);
-div1.appendChild(title1);
-
-document.getElementById("div1").appendChild(div1);
+ if(favorites.length !== 0){
+    favorites.map((el)=>{generateFavoriteCard(el)});
+}
+//let testButton = document.querySelector("button");
+//testButton.onclick = ()=>{
+//    console.log("Clicked");
+//}
+/*
+function addImageCellEvents(img) {
+    img.addEventListener("mouseover", function() {
+      img.childNodes[0].width = 90;
+    }); 
+    img.addEventListener("mouseout", function() {
+      img.childNodes[0].width = 70;
+    }); 
+  };
+  */
