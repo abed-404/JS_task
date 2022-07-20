@@ -26,9 +26,26 @@
         <a href="favorite.html"><i class="fas fa-heart"></i></a>
       </div>
     </div>
-      <div id="books"  class="books"></div>
+    
+    <button class="open-button " id="new-book" onclick="openForm()"><i class="fas fa-book-open"></i></button>
+    <div class="form-popup" id="myForm">
+      <form class="form-container" name = "newBook-form">
+        <h2>New Book</h2>
+        <label for="newTitle"><b>Tittle</b></label>
+        <input type="text" placeholder="Enter Title of the Book" name="newTitle" required>
+        <label for="newAuthor"><b>Author</b></label>
+        <input type="text" placeholder="Enter Name of Author" name="newAuthor" required>
+        <label for="newEdition"><b>Edition</b></label>
+        <input type="number" placeholder="Enter edition" name="newEdition" required>  
+        <label for="newImage"><b>Image</b></label>
+        <input type="text" placeholder="Enter URL of image" name="newImage" required>
+        <button type="submit" class="btn" onclick="addNewBook(newBook-form)">Add</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+    <div id="books"  class="books"></div>
 	</div>
   <script src="script.js"></script>
-  <script src="s.js"></script>
+  <script src="home.js"></script>
 </body>
 </html>
