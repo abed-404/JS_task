@@ -20,7 +20,7 @@ function generateCard(el,arrId){
    
     div.setAttribute("class", "book");
     if (arrId === "home"){
-        btn.setAttribute("class","fas fa-heart");
+        btn.setAttribute("class","fas fa-heart fav-trash");
         btn.addEventListener('click',e=>{
             addToFavorites(el)
         });
@@ -28,7 +28,7 @@ function generateCard(el,arrId){
         document.getElementById("books").appendChild(div);
     }
     else {
-        btn.setAttribute("class","fas fa-trash");
+        btn.setAttribute("class","fas fa-trash fav-trash");
         btn.addEventListener('click',e=>{
             removeFromFavorites(el)
         });

@@ -40,7 +40,6 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 50px;
   width:15%;
   height: 20%;
 }
@@ -49,7 +48,6 @@ h1 {
   height: fit-content;
   text-align: center;
   font-family: "Archivo", sans-serif;
-  
 }
 .author{
   width: fit-content;
@@ -58,11 +56,23 @@ h1 {
   font-family: "Archivo", sans-serif;
 }
 img {
+  border-radius: 5px;
   width : 120px;
   height: 200px;
 }
+.fav-trash{
+  background-color: rgb(52, 9, 58);
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  border-radius: 12px;
+  width:35px;
+  height: 35px;
+}
 /* Style the header with a grey background and some padding */
 .header {
+  display: flexbox;
   width: 100%;
   overflow: hidden;
   background-color: #472a66;
@@ -186,7 +196,7 @@ img {
 }
 
 /* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
+.form-container .btn:hover, .open-button:hover , .fav-trash:hover{
   opacity: 1;
 }
 

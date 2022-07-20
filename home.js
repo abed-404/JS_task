@@ -35,6 +35,25 @@ function openForm() {
   
   function closeForm() {
     document.getElementById("myForm").style.display = "none";
+  }
+  // THis function is not working
+  function addNewBook(newBookForm){
+    event.preventDefault();
+    console.log("event: "+ event.target);
+    console.log("form: " + newBookForm[1].innerHTML);
+    console.log(newBookForm[0].value);
+
+   const newTitle = newBookForm[0].value;
+   const newAuthor = newBookForm[1].value;
+   const newEdition = newBookForm[2].value;
+   const newImage = newBookForm[3].value;
+   const newId =5;
+   const newBook = {id :newId ,title : newTitle,author : newAuthor, edition : newEdition, image : newImage};
+   console.log(newBook);
+   //renderBooks(books,"books");
+   closeForm();
+   books.push(newBook);
+   
   }  
-//console.log(favorites);
+console.log(books);
 //console.log(localStorage);
