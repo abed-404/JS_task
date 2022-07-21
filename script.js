@@ -21,6 +21,7 @@ function generateCard(el,arrId){
     div.setAttribute("class", "book");
     if (arrId === "home"){
         btn.setAttribute("class","fas fa-heart fav-trash");
+        
         btn.addEventListener('click',e=>{
             addToFavorites(el)
         });
@@ -29,6 +30,7 @@ function generateCard(el,arrId){
     }
     else {
         btn.setAttribute("class","fas fa-trash fav-trash");
+        
         btn.addEventListener('click',e=>{
             removeFromFavorites(el)
         });
@@ -42,20 +44,21 @@ function renderBooks(arr,id){
 }
 
 function addToFavorites(el){
-    favorites = JSON.parse(localStorage.getItem("favorites"));
+    favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     favorites.push(el);
     localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
 function removeFromFavorites(el){
     console.log(el.id);
-    favorites = JSON.parse(localStorage.getItem("favorites"));
+    favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     const removeId = el.id;
     const i = favorites.findIndex((elem) => elem.id === removeId );
     if (i !== -1){
         favorites.splice(i,1);
     }
     localStorage.setItem("favorites", JSON.stringify(favorites));
+    //document.getElementById("fav").innerHTML = "";
     location.reload();
     //updateDiv();
 }
