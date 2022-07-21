@@ -48,7 +48,7 @@ function addToFavorites(el){
     favorites.push(el);
     localStorage.setItem("favorites", JSON.stringify(favorites));
 }
-
+////////////////////////
 function removeFromFavorites(el){
     console.log(el.id);
     favorites = JSON.parse(localStorage.getItem("favorites")) || [];
