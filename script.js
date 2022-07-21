@@ -1,37 +1,36 @@
-function generateCard(el,arrId){
+function generateCard(el, arrayName) {
+    const {id, image, title , author}= el
     const div = document.createElement("div");
     const img = document.createElement("img");
     const ttl = document.createElement("h5");
     const auth = document.createElement("h6");
     const btn = document.createElement("button");
-    const idHidden=document.createElement('input')
-    img.src = el.image;
+    const idHidden = document.createElement('input')
+    img.src = image;
     img.alt = "Image Not Found !";
-    ttl.innerText = el.title;
-    auth.innerText = el.author;
-    idHidden.setAttribute("id",el.id);
-    idHidden.setAttribute("class","hidden");
-    ttl.setAttribute("class","title");
-    auth.setAttribute("class","author");
+    ttl.innerText = title;
+    auth.innerText = author;
+    idHidden.setAttribute("id", id);
+    idHidden.setAttribute("class", "hidden");
+    ttl.setAttribute("class", "title");
+    auth.setAttribute("class", "author");
     div.appendChild(img);
     div.appendChild(ttl);
     div.appendChild(auth);
     div.appendChild(idHidden);
-   
     div.setAttribute("class", "book");
-    if (arrId === "home"){
-        btn.setAttribute("class","fas fa-heart fav-trash");
-        
-        btn.addEventListener('click',e=>{
-            addToFavorites(el)
+
+    if (arrayName === "books") {
+        btn.setAttribute("class", "fas fa-heart fav-trash");
+        btn.addEventListener('click', e => {
+            addToFavorites(el, "favorites")
         });
         div.appendChild(btn);
         document.getElementById("books").appendChild(div);
     }
     else {
-        btn.setAttribute("class","fas fa-trash fav-trash");
-        
-        btn.addEventListener('click',e=>{
+        btn.setAttribute("class", "fas fa-trash fav-trash");
+        btn.addEventListener('click', e => {
             removeFromFavorites(el)
         });
         div.appendChild(btn);
@@ -39,30 +38,25 @@ function generateCard(el,arrId){
     }
 }
 
-function renderBooks(arr,id){
-    arr.map((el)=>{generateCard(el,id)});
+function renderBooks(arrayName) {
+    if (arrayName === "books") {
+        books.map((el) => { generateCard(el, arrayName) });
+    }
+    else {
+        favorites.map((el) => { generateCard(el, arrayName) });
+    }
 }
 
-function addToFavorites(el){
+function addToFavorites(el) {
     favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     favorites.push(el);
     localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
-function removeFromFavorites(el){
-    console.log(el.id);
+function removeFromFavorites(removedEL) {
     favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    const removeId = el.id;
-    const i = favorites.findIndex((elem) => elem.id === removeId );
-    if (i !== -1){
-        favorites.splice(i,1);
-    }
+    favorites = favorites.filter((el) => el.id !== removedEL.id);
     localStorage.setItem("favorites", JSON.stringify(favorites));
-    //document.getElementById("fav").innerHTML = "";
-    location.reload();
-    //updateDiv();
+    document.getElementById("fav").innerHTML = "";
+    renderBooks("favorites");
 }
-
-//function updateDiv(){ 
-//    $( "#fav" ).load(window.location.href + " #fav" );
-//    }

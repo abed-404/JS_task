@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Books Directory</title>
-	<link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo&family=B612&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
-	<link rel="stylesheet" href="style.css" />
-	</head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Books Directory</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo&family=B612&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
 <body>
-  
-	<div class="container">
+
+  <div class="container">
     <div class="header">
       <a href="index.html" class="logo">Book Shelf <i class="fas fa-book"></i></a>
       <div class="header-right">
@@ -26,26 +21,28 @@
         <a href="favorite.html"><i class="fas fa-heart"></i></a>
       </div>
     </div>
-    
-    <button class="open-button " id="new-book" onclick="openForm()"><i class="fas fa-book-open"></i><i class="fas fa-book-plus"></i></button>
+
+    <button class="open-button " id="new-book" onclick="openForm()"><i class="fas fa-book-open"></i><i
+        class="fas fa-book-plus"></i></button>
     <div class="form-popup" id="myForm">
-      <form class="form-container" name = "newBookForm">
+      <form class="form-container">
         <h2>New Book</h2>
         <label for="newTitle"><b>Tittle</b></label>
         <input type="text" placeholder="Enter Title of the Book" id="newTitle" required>
         <label for="newAuthor"><b>Author</b></label>
         <input type="text" placeholder="Enter Name of Author" id="newAuthor" required>
         <label for="newEdition"><b>Edition</b></label>
-        <input type="number" placeholder="Enter edition" id="newEdition" required>  
+        <input type="number" placeholder="Enter edition" id="newEdition" required>
         <label for="newImage"><b>Image</b></label>
         <input type="text" placeholder="Enter URL of image" id="newImage" required>
-        <button class="btn" id="newBook" onclick="addNewBook(newBookForm)">Add</button>
+        <button class="btn" id="newBook">Add</button>
         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
       </form>
     </div>
-    <div id="books"  class="books" ></div>
-	</div>
+    <div id="books" class="books"></div>
+  </div>
   <script src="script.js"></script>
   <script src="home.js"></script>
 </body>
+
 </html>
