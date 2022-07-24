@@ -62,10 +62,11 @@ img {
 }
 img:hover {
   /* Start the shake animation and make the animation last for 0.5 seconds */
+  transform: scale(5);
   animation: shake 0.5s;
-
   /* When the animation is finished, start again */
   animation-iteration-count: infinite;
+  
 }
 
 @keyframes shake {
@@ -227,55 +228,7 @@ img:hover {
 }
 
 /* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover , .fav-trash:hover{
+.form-container .btn:hover, .open-button:hover , .fav-trash:hover, .fav-trash-liked:hover{
+  transform: scale(1.2);
   opacity: 1;
 }
-
-/*
-.add-fav {
-  display: inline-block;
-  padding: 5px;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  background: -webkit-linear-gradient( top,#fff,#ddd) #ddd;
-  position: relative;
-  transition: all .5s ease;
-  border-radius: 3px;
-  box-shadow: inset 0 -1px 1px #eee;
-  
-  &:hover {
-    background: -webkit-linear-gradient( top,#fff,#ccc) #ddd;
-  }
-
-  .icon-heart {
-    font-size: 24px;
-    color: #666;
-    position: relative;
-    transition: all .5s ease-in-out;
-  }
-  .icon-plus-sign {
-    font-size: 10px;
-    color: #333;
-    background: #fff;
-    border-radius: 100%;
-    position: absolute;
-    bottom: 2px;
-    right: 2px;
-    height: 11px;
-    width: 11px;
-    line-height: 11px;
-    text-align: center;
-    transition: all 1s ease-in-out;
-  }
-  input[type="checkbox"] { 
-    position: absolute;
-    opacity: 0;
-    &:checked + .icon-heart {
-      color: orange;
-      .icon-plus-sign {
-        display:none;
-      }
-    }
-  }
-}
-*/
