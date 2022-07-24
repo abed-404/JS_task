@@ -23,8 +23,7 @@ const createButtonElement = (className, el, eventFunction, parentDiv) => {
     const btn = document.createElement("button");
     btn.setAttribute("class", className);
     btn.addEventListener('click', e => {
-        e.target.setAttribute("class","fas fa-heart fav-trash-liked")
-        //e.target.classlist.toggle("fas fa-heart fav-trash-liked");
-        eventFunction(el)});
+    e.target.classList.toggle("fav-trash-liked");
+    eventFunction(el)});
     parentDiv.appendChild(btn);
 }

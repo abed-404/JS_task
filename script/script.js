@@ -12,7 +12,10 @@ const generateCard = (el, divName, cb, btnClass) => {
 const renderBooks = (array, divName, cb, btnText) => {
     array.map((el) => { generateCard(el ,divName, cb, btnText) });
 }
-
+const myForm = document.getElementById("myForm");
+const formDisplay = (myForm, displayStatus) => {
+    myForm.style.display = displayStatus;
+}
 
 
 

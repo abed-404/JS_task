@@ -16,14 +16,14 @@
 
   <div class="container">
     <div class="header">
-      <a href="./index.html" class="logo">Book Shelf <i class="fas fa-book"></i></a>
+      <a href="/index.html" class="logo">Book Shelf <i class="fas fa-book"></i></a>
       <div class="header-right">
-        <a class="active" href="./index.html"><i class="fas fa-home"></i></a>
-        <a href="./pages/favorite.html"><i class="fas fa-heart"></i></a>
+        <a class="active" href="/index.html"><i class="fas fa-home"></i></a>
+        <a href="/pages/favorite.html"><i class="fas fa-heart"></i></a>
       </div>
     </div>
 
-    <button class="open-button " id="new-book" onclick="openForm()"><i class="fas fa-book-open"></i><i
+    <button class="open-button " id="new-book" onclick="formDisplay(myForm, 'block')"><i class="fas fa-book-open"></i><i
         class="fas fa-book-plus"></i></button>
     <div class="form-popup" id="myForm">
       <form class="form-container">
@@ -37,14 +37,18 @@
         <label for="newImage"><b>Image</b></label>
         <input type="text" placeholder="Enter URL of image" id="newImage" required>
         <button class="btn" id="newBook">Add</button>
-        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        <button type="button" class="btn cancel" onclick="formDisplay(myForm, 'none')">Close</button>
       </form>
     </div>
     <div id="books" class="books"></div>
   </div>
-  <script src="./script/DOM.js"></script>
-  <script src="./script/script.js"></script>
-  <script src="./script/home.js"></script>
+  <script src="/script/DOM.js"></script>
+  <script src="/script/script.js"></script>
+  <script src="/script/home.js"></script>
 </body>
+<<<<<<< HEAD
+</html>
+=======
 
 </html>
+>>>>>>> main

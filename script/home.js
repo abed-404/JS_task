@@ -32,6 +32,8 @@ const renderHome = () => {
     document.getElementById("books").innerHTML = "";
     renderBooks(books, 'books', addToFavorites, "fas fa-heart fav-trash");
 }
+
+
 const addToFavorites = (el) => {
     favorites = JSON.parse(localStorage.getItem("favorites")) || [];
     const isFound = favorites.some(element => {
@@ -48,14 +50,7 @@ const addToFavorites = (el) => {
         alert("Book is already in favorites");
     }
 }
-
 renderHome();
-const openForm = () => {
-    document.getElementById("myForm").style.display = "block";
-}
-const closeForm = () => {
-    document.getElementById("myForm").style.display = "none";
-}
 document.getElementById('newBook').addEventListener('click', e => {
     e.preventDefault();
     addNewBook(e);
@@ -68,7 +63,7 @@ const addNewBook = ({target: {parentNode}}) => {
     const image = parentNode[3].value;
     const id = books.length;
     const newBook = { id, title, author, edition, image };
-    closeForm();
     books.push(newBook);
+    formDisplay(myForm, 'none');
     renderHome();
 }
