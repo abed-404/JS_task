@@ -28,12 +28,32 @@ let books = [
         image: "https://covers.openlibrary.org/b/id/12649434-L.jpg"
     }
 ];
+const renderHome = () => {
+    document.getElementById("books").innerHTML = "";
+    renderBooks(books, 'books', addToFavorites, "fas fa-heart fav-trash");
+}
+const addToFavorites = (el) => {
+    favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const isFound = favorites.some(element => {
+        if (element.id === el.id) {
+          return true;
+        }
+        return false;
+      });
+    if (!isFound){
+        favorites.push(el);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+    else {
+        alert("Book is already in favorites");
+    }
+}
 
-renderBooks("books");
-function openForm() {
+renderHome();
+const openForm = () => {
     document.getElementById("myForm").style.display = "block";
 }
-function closeForm() {
+const closeForm = () => {
     document.getElementById("myForm").style.display = "none";
 }
 document.getElementById('newBook').addEventListener('click', e => {
@@ -41,7 +61,7 @@ document.getElementById('newBook').addEventListener('click', e => {
     addNewBook(e);
 })
 
-function addNewBook({target: {parentNode}}) {
+const addNewBook = ({target: {parentNode}}) => {
     const title = parentNode[0].value;
     const author = parentNode[1].value;
     const edition = parentNode[2].value;
@@ -50,6 +70,5 @@ function addNewBook({target: {parentNode}}) {
     const newBook = { id, title, author, edition, image };
     closeForm();
     books.push(newBook);
-    document.getElementById("books").innerHTML = "";
-    renderBooks("books");
+    renderHome();
 }
